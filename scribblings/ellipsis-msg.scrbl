@@ -14,29 +14,31 @@
 This module provides a new class @racket[ellipsis-msg%] that will cut the label of with ellipsis (...) when it is too long
 for the current width. The @racket[ellipsis] parameter tells where to put the ellipsis. 
 
-@defclass[columns-pane% vertical-pane% ()]{
+@defclass[ellipsis-msg% message% ()]{
 
-A columns pane arranges its subwindows in columns. The number of columns must be given in advance and initializes to 1.
-See also @racket[pane%].
+An ellipis-msg will cut the label with ellipsis (...) if there's not enough room to hold it.
+See also @racket[message%].
 
-@defconstructor[([label (or/c label-string?)]
-                 [parent (or/c (is-a?/c frame%) (is-a?/c dialog%) 
+@defconstructor[([label (or/c label-string? (is-a?/c bitmap%)
+                              (or/c 'app 'caution 'stop))]
+                 [parent (or/c (is-a?/c frame%) (is-a?/c dialog%)
                                (is-a?/c panel%) (is-a?/c pane%))]
-                 [[ellipsis symbol? 'right]
-                  [font (is-a/c font%) normal-control-font]
-                  [auto-resize boolean? #f]
-                  [color (or/c #f string? (is-a?/c color%)) #f]
-                  [enabled any/c #t]
-                  [vert-margin spacing-integer? 0]
-                  [horiz-margin spacing-integer? 0]
-                  [min-width (or/c dimension-integer? #f) #f]
-                  [min-height (or/c dimension-integer? #f) #f]
-                  [stretchable-width any/c #t]
-                  [stretchable-height any/c #t]]
-                  )]{
+                 [ellipsis symbol? 'right]
+                 [style (listof (or/c 'deleted)) null]
+                 [font (is-a?/c font%) normal-control-font]
+                 [color (or/c #f string? (is-a?/c color%)) #f]
+                 [enabled any/c #t]
+                 [vert-margin spacing-integer? 2]
+                 [horiz-margin spacing-integer? 2]
+                 [min-width (or/c dimension-integer? #f) #f]
+                 [min-height (or/c dimension-integer? #f) #f]
+                 [stretchable-width any/c #f]
+                 [stretchable-height any/c #f]
+                 [auto-resize any/c #f])]{
+  Creates the ellipsis-msg% with the given ellipsis parameter.
 }
 
-@defmethod*[([(set-label (label string?) [resize or/c boolean? default #f])])]{
+@defmethod*[#:mode override ([(set-label (label string?) [resize boolean? #f]) void?])]{
  Sets the message label. If resize = #t, the label will be resized (if auto-resize = #t)
 }
 
