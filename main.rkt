@@ -1,5 +1,7 @@
 #lang racket
 
+(require racket/gui)
+
 (provide ellipsis-msg%)
 
 (define ellipsis-msg%
