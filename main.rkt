@@ -1,6 +1,7 @@
 #lang racket
 
 (require racket/gui)
+(require (prefix-in str: srfi/13))
 
 (provide ellipsis-msg%)
 
