@@ -2,6 +2,8 @@
 
 @(require
    scribble/example
+   (prefix-in html scribble/html/html)
+   (prefix-in extra scribble/html/extra)
    (for-label ;racket
               ;racket/base
               ;racket/string
@@ -9,6 +11,7 @@
               ;racket/file
               )
   @(for-label ellipsis-msg))
+
 
 @title[#:tag "ellipsis-msg"]{A message% with ellipsis (...) to the left or right}
 
@@ -52,7 +55,7 @@ See also @racket[message%].
 
 The code underneath produces the following output:
 
-@image{scribblings/example.mp4}
+(html:output-xml{extra:video "scribblings/example.mp4"))
 
 @#reader scribble/comment-reader 
 [racketblock
