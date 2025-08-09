@@ -2,7 +2,11 @@
 
 @(require
    scribble/example
-   (for-label racket/gui
+   (for-label ;racket
+              ;racket/base
+              ;racket/string
+              racket/gui
+              ;racket/file
               )
   @(for-label ellipsis-msg))
 
