@@ -20,7 +20,9 @@
     (make-style #f
                 (list
                  (make-alt-tag "video")
-                 (make-attributes (list (cons 'src video)))
+                 (make-attributes (list (cons 'controls "")
+                                        (cons 'width "400")
+                                        (cons 'src video)))
                  )
                 )
     null))
