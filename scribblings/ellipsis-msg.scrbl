@@ -27,7 +27,7 @@ See also @racket[message%].
                               (or/c 'app 'caution 'stop))]
                  [parent (or/c (is-a?/c frame%) (is-a?/c dialog%)
                                (is-a?/c panel%) (is-a?/c pane%))]
-                 [ellipsis symbol? 'right]
+                 [ellipsis (or/c '(left middle right)) 'right]
                  [style (listof (or/c 'deleted)) null]
                  [font (is-a?/c font%) normal-control-font]
                  [color (or/c #f string? (is-a?/c color%)) #f]
@@ -54,13 +54,47 @@ See also @racket[message%].
 [racketblock
   (require racket/gui)
   (require ellipsis-msg)
-  (define win (new frame% [label "Hi there!"]))
+  (define win (new frame% [label "Hi there!"] [width 300]))
+
   (define hp1 (new horizontal-pane% [parent win]))
-  (define btn1 (new button% [label "Longer 1"] [parent hp1] [callback (lambda (b e) (send lbl1 set-label "This is a very long text, yes a longer text than we initial put"))]))
-  (define lbl1 (new ellipsis-msg% [label "This is an ellipsis label"] [parent hp1] [ellipsis 'right] [auto-resize #t] [stretchable-width #t]))
+  (define btn1 (new button% [label "Longer 1"] [parent hp1]
+                    [callback
+                     (lambda (b e)
+                       (send lbl1 set-label
+                             "This is a very long text, yes a longer text than we initial put"))]
+                    ))
+  (define lbl1 (new ellipsis-msg% [label "This is an ellipsis label"] [parent hp1]
+                    [ellipsis 'right] [auto-resize #t] [stretchable-width #t]))
+
   (define hp2 (new horizontal-pane% [parent win]))
-  (define btn2 (new button% [label "Longer 2"] [parent hp2] [callback (lambda (b e) (send lbl2 set-label "This is a very long second text, yes a longer text than we initial put"))]))
-  (define lbl2 (new ellipsis-msg% [label "This is an ellipsis label"] [parent hp2] [ellipsis 'left] [auto-resize #t]  [stretchable-width #t]))
+  (define btn2 (new button% [label "Longer 2"] [parent hp2]
+                    [callback
+                     (lambda (b e)
+                       (send lbl2 set-label
+                             "This is a very long second text, yes a longer text than we initial put"))]
+                    ))
+  (define lbl2 (new ellipsis-msg% [label "This is an ellipsis label"] [parent hp2]
+                    [ellipsis 'left] [auto-resize #t] [stretchable-width #t]))
+
+
+  (define hp3 (new horizontal-pane% [parent win]))
+  (define btn3 (new button% [label "Longer 3"] [parent hp3]
+                    [callback
+                     (lambda (b e)
+                       (send lbl3 set-label
+                             "This is a third very long text, yes much longer than the initial text"))]
+                    ))
+  (define lbl3 (new ellipsis-msg% [label "This is label 3"] [parent hp3]
+                    [ellipsis 'middle] [auto-resize #t] [stretchable-width #t]
+                    [font (make-object font% 12 'default)]
+                    ))
+
+  (define hp4 (new horizontal-pane% [parent win]))
+  (define lbl4 (new message% [label "This is label 4"] [parent hp4]
+                    [auto-resize #t] [stretchable-width #t]
+                    [font (make-object font% 12 'default)]
+                    ))
+
   (send win show #t)
 ]
 
