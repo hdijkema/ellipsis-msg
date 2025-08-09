@@ -3,6 +3,7 @@
 @(require
    scribble/example
    scribble/core
+   scribble/html-properties
    (for-label ;racket
               ;racket/base
               ;racket/string
@@ -13,9 +14,16 @@
    ;scribble/html/extra
   @(for-label ellipsis-msg))
 
-@(define(exact . items)
-  (make-element (make-style "identity" '(exact-chars))
-                items))
+
+@(define(add-video video)
+   (make-element
+    (make-style #f
+                (list
+                 (make-alt-tag "video")
+                 (make-attributes (list (cons 'src video)))
+                 )
+                )
+    null))
 
 @title[#:tag "ellipsis-msg"]{A message% with ellipsis (...) to the left or right}
 
@@ -59,7 +67,7 @@ See also @racket[message%].
 
 The code underneath produces the following output:
 
-@exact{(<video src="scribblings/example.mp4"></video>)}
+@add-video{scribblings/example.mp4}
 
 @#reader scribble/comment-reader 
 [racketblock
