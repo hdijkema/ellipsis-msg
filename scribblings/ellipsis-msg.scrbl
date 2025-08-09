@@ -2,16 +2,20 @@
 
 @(require
    scribble/example
-   (prefix-in html scribble/html/html)
-   (prefix-in extra scribble/html/extra)
+   scribble/core
    (for-label ;racket
               ;racket/base
               ;racket/string
               racket/gui
               ;racket/file
               )
+   ;scribble/html/html
+   ;scribble/html/extra
   @(for-label ellipsis-msg))
 
+@(define(exact . items)
+  (make-element (make-style "identity" '(exact-chars))
+                items))
 
 @title[#:tag "ellipsis-msg"]{A message% with ellipsis (...) to the left or right}
 
@@ -55,7 +59,7 @@ See also @racket[message%].
 
 The code underneath produces the following output:
 
-(html:output-xml{extra:video "scribblings/example.mp4"))
+@exact{(<video src="scribblings/example.mp4"></video>)}
 
 @#reader scribble/comment-reader 
 [racketblock
