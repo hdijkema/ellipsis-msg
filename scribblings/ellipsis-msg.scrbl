@@ -46,6 +46,8 @@ See also @racket[message%].
  Sets the message label. If resize = #t, the label will be resized (if auto-resize = #t)
 }
 
+}
+
 @section{Example code}
 
 @#reader scribble/comment-reader 
@@ -61,7 +63,4 @@ See also @racket[message%].
   (define lbl2 (new ellipsis-msg% [label "This is an ellipsis label"] [parent hp2] [ellipsis 'left] [auto-resize #t]  [stretchable-width #t]))
   (send win show #t)
 ]
-
-
-}
 
