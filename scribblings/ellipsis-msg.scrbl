@@ -50,6 +50,10 @@ See also @racket[message%].
 
 @section{Example code}
 
+The code underneath produces the following output:
+
+@image{scribblings/example.mp4}
+
 @#reader scribble/comment-reader 
 [racketblock
   (require racket/gui)
