@@ -9,6 +9,7 @@
 (define scribblings
   '(
     ("scribblings/ellipsis-msg.scrbl" () (gui) "ellipsis-msg")
+    ("scribblings/example.mp4" () (gui) "example.mp4")
     )
   )
 
