@@ -21,7 +21,7 @@
                 (list
                  (make-alt-tag "video")
                  (make-attributes (list (cons 'controls "")
-                                        (cons 'width "600")
+                                        (cons 'width "400")
                                         (cons 'src video)))
                  )
                 )
