@@ -67,6 +67,7 @@ See also @racket[message%].
 
 The code underneath produces the following output:
 
+@image{scibblings/example.mp4}
 @add-video{scribblings/example.mp4}
 
 @#reader scribble/comment-reader 
