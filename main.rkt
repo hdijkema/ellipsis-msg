@@ -60,11 +60,14 @@
         my_label)
       ))
 
+
+;(require racket/gui)
+;(require ellipsis-msg)
 ;(define win (new frame% [label "Hi there!"]))
 ;(define hp1 (new horizontal-pane% [parent win]))
 ;(define btn1 (new button% [label "Longer 1"] [parent hp1] [callback (lambda (b e) (send lbl1 set-label "This is a very long text, yes a longer text than we initial put"))]))
-;(define lbl1 (new ellipsis-msg% [label "This is an ellipsis label"] [parent hp1] [ellipsis 'right]))
+;(define lbl1 (new ellipsis-msg% [label "This is an ellipsis label"] [parent hp1] [ellipsis 'right] [auto-resize #t] [stretchable-width #t]))
 ;(define hp2 (new horizontal-pane% [parent win]))
 ;(define btn2 (new button% [label "Longer 2"] [parent hp2] [callback (lambda (b e) (send lbl2 set-label "This is a very long second text, yes a longer text than we initial put"))]))
-;(define lbl2 (new ellipsis-msg% [label "This is an ellipsis label"] [parent hp2] [ellipsis 'left]))
+;(define lbl2 (new ellipsis-msg% [label "This is an ellipsis label"] [parent hp2] [ellipsis 'left] [auto-resize #t]  [stretchable-width #t]))
 ;(send win show #t)
