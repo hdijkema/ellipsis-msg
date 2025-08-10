@@ -19,7 +19,4 @@
   '("racket-doc"
     "rackunit-lib"
     "scribble-lib"
-    "scribble/example"
-    "scribble/core"
-    "scribble/html-properties"
     ))
