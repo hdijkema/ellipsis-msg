@@ -69,7 +69,7 @@ See also @racket[message%].
 
 The code underneath produces the following output:
 
-@add-video{../../resources/example.mp4}
+@add-video{https://github.com/hdijkema/ellipsis-msg/raw/refs/heads/main/resources/example.mp4}
 
 @#reader scribble/comment-reader 
 [racketblock

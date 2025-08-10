@@ -1,7 +1,7 @@
 #lang info
 
 (define pkg-authors '(hnmdijkema))
-(define version "0.2.2")
+(define version "0.2.3")
 (define license 'Apache-2.0)
 (define collection "ellipsis-msg")
 (define pkg-desc "A message% with ellipsis (...) to the left or right")
@@ -17,6 +17,7 @@
 
 (define build-deps
   '("racket-doc"
+    "draw-doc"
     "rackunit-lib"
     "scribble-lib"
     ))
