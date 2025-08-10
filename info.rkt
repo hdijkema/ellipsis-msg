@@ -1,10 +1,10 @@
 #lang info
 
 (define pkg-authors '(hnmdijkema))
-(define version "0.2.3")
+(define version "0.2.4")
 (define license 'Apache-2.0)
 (define collection "ellipsis-msg")
-(define pkg-desc "A message% with ellipsis (...) to the left or right")
+(define pkg-desc "ellipsis-msg% - A message% with ellipsis (...) to the left, right or in the middle")
 
 (define scribblings
   '(
